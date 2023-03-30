@@ -2,6 +2,8 @@
 -- usage: 
     -- DECLARE @rows INT
     -- EXECUTE @rows = dbo.table_row_count @TableName
+-- Home: https://github.com/JavaScriptDude/SQLStuff
+-- Author: Timothy C. Quinn
 USE <db>
 GO
 

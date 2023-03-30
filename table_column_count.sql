@@ -2,6 +2,9 @@
 -- usage: 
     -- DECLARE @cols INT
     -- EXECUTE @cols = dbo.table_column_count @TableName
+-- Home: https://github.com/JavaScriptDude/SQLStuff
+-- Author: Timothy C. Quinn
+
 USE <db>
 GO
 

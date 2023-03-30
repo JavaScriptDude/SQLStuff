@@ -2,7 +2,8 @@
 -- usage: 
     -- DECLARE @cols_csv nvarchar(max)
     -- EXECUTE @from_cols_csv = dbo.table_column_names_csv @FromTable, @Sort=1, @Desc=0
-
+-- Home: https://github.com/JavaScriptDude/SQLStuff
+-- Author: Timothy C. Quinn
 USE <db>
 GO
 CREATE FUNCTION dbo.table_column_names_csv (

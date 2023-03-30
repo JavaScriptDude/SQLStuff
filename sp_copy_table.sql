@@ -1,6 +1,6 @@
 Use <db>
 -- Usage:
-	-- Create new table with updated schema
+	-- Copy data from a source table to a new empty table
 		-- Notes: (must contain all columns from 'FromTable') and target columns must be compatible with source (eg increase # of characters allowed)
 	-- Run command:
 		-- use <db>
@@ -8,6 +8,8 @@ Use <db>
 		-- EXEC sp_copy_table <source> <dest>
 		-- eg: EXEC sp_copy_table 'BT_History', 'BT_History_tmp'
 	-- Now you can rename BT_History to BT_History_old and rename BT_History_tmp to BT_History
+-- Home: https://github.com/JavaScriptDude/SQLStuff
+-- Author: Timothy C. Quinn
 Go
 CREATE PROCEDURE sp_copy_table(
 	@FromTable sysname,
