@@ -36,21 +36,21 @@ BEGIN
 	IF(@rows = 0) BEGIN
 		RAISERROR('FromTable (%s) is empty. Exiting', 10, 1, @FromTable); RETURN
 	END ELSE
-		PRINT FORMATMESSAGE('FromTable (%s) ok', @FromTable)
+		PRINT 'FromTable (' + @FromTable + ') ok'
 
 	EXECUTE @rows = dbo.table_row_count @ToTable
 	IF(@rows > 0) BEGIN
 		RAISERROR('ToTable (%s) is not empty. It has %i rows. Exiting', 10, 1, @ToTable, @rows); RETURN
 	END ELSE
-		PRINT FORMATMESSAGE('ToTable (%s) ok', @ToTable)
+		PRINT 'ToTable (' + @ToTable + ') ok'
 
-	PRINT FORMATMESSAGE('Copying records from %s to %s', @FromTable, @ToTable)
+	PRINT 'Copying records from ' + @FromTable + ' to ' + @ToTable
 
-	SET @sql = FORMATMESSAGE('INSERT INTO %s (' + @from_cols_csv + ') SELECT ' + @from_cols_csv + ' FROM %s', @ToTable, @FromTable); 
+	SET @sql = 'INSERT INTO ' + @ToTable + ' (' + @from_cols_csv + ') SELECT ' + @from_cols_csv + ' FROM ' + @FromTable 
 	
 	SET @sql_final = 'SET IDENTITY_INSERT ' + @FromTable + ' OFF; SET IDENTITY_INSERT ' + @ToTable + ' ON' + '; ' +  @sql + '; SET IDENTITY_INSERT ' + @ToTable + ' OFF'
 
-	PRINT FORMATMESSAGE('@@sql_final = %s', @sql_final)
+	PRINT '@@sql_final = '+ @sql_final
 
 	EXEC sp_executesql @sql_final
 

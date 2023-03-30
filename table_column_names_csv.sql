@@ -36,7 +36,7 @@ BEGIN
                      , @Params = N'@cols nvarchar(max) OUT'
                      , @cols = @cols OUT
 
-	set @cols = trim(@cols)
+	--set @cols = trim(@cols)
 	set @cols = left(@cols, len(@cols)-1)
 
     return @cols
